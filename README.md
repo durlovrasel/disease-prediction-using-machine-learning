@@ -1,32 +1,47 @@
 # Disease Prediction using Machine Learning
 
-This repository contains a complete machine learning pipeline for binary disease prediction using the **Breast Cancer Wisconsin Diagnostic dataset** from `scikit-learn`.
+A complete machine learning pipeline implemented for binary disease prediction using the **Breast Cancer Wisconsin Diagnostic dataset** from `scikit-learn`. This project demonstrates data preprocessing, supervised model training, evaluation metric collection, and visual performance reporting.
 
 ## Project Structure
-- `notebook.ipynb` (or `script.py`): Main code containing data preprocessing, model training, and evaluation.
-- `results/`: Directory containing saved evaluation plots and metrics summary CSV.
+- `disease_prediction.py`: The main Python script containing data loading, preprocessing, model training, evaluation, and plot generation.
+- `results/`: Directory containing saved evaluation plots (`roc_curve_comparison_2.png`) and tabular metrics summary (`performance_metrics_2.csv`).
 - `README.md`: Project documentation.
 
+---
+
 ## Phase A: Data Preprocessing
-1. **Dataset Loading**: Loaded features and target labels from `sklearn.datasets.load_breast_cancer`.
-2. **Data Splitting**: Split the dataset into 80% training and 20% testing sets using stratified sampling.
-3. **Feature Scaling**: Applied `StandardScaler` to normalize all continuous features to zero mean and unit variance.
+1. **Dataset Loading**: Loaded features and binary target labels using `sklearn.datasets.load_breast_cancer`.
+2. **Data Splitting**: Partitioned the dataset into training (80%) and testing (20%) sets using stratified sampling to maintain class distribution.
+3. **Feature Scaling**: Applied `StandardScaler` to standardize all continuous features to zero mean and unit variance, ensuring stable convergence for distance-based and gradient-based algorithms.
+
+---
 
 ## Phase B: Model Implementation
-Three supervised machine learning algorithms were implemented and trained:
-1. **Logistic Regression (LR)**: Linear baseline classifier.
-2. **Random Forest (RF)**: Ensemble tree-based classifier.
-3. **Support Vector Machine (SVM)**: Maximum-margin hyperplane classifier with an RBF kernel.
+Three robust machine learning classifiers were trained and evaluated:
+1. **Logistic Regression (LR)**: A linear baseline classifier suitable for binary outcomes.
+2. **Random Forest (RF)**: An ensemble tree-based classifier that handles non-linear relationships and feature interactions.
+3. **Support Vector Machine (SVM)**: A maximum-margin classifier using an RBF kernel to separate complex class boundaries.
+
+---
 
 ## Phase C: Evaluation & Results
 Models were evaluated using Accuracy, Precision, Recall, F1-Score, and ROC-AUC. 
 
+### Performance Summary
+
 | Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Logistic Regression | ~0.97 | ~0.96 | ~0.99 | ~0.97 | ~0.99 |
-| Random Forest | ~0.96 | ~0.95 | ~0.99 | ~0.96 | ~0.99 |
-| Support Vector Machine | ~0.97 | ~0.96 | ~0.99 | ~0.97 | ~0.99 |
+| **Logistic Regression** | 0.9825 | 0.9861 | 0.9861 | 0.9861 | 0.9954 |
+| **Random Forest** | 0.9561 | 0.9589 | 0.9722 | 0.9655 | 0.9939 |
+| **Support Vector Machine** | 0.9825 | 0.9861 | 0.9861 | 0.9861 | 0.9950 |
 
-### Saved Visualizations
-* `results/roc_curve_comparison.png`: Receiver Operating Characteristic curves comparing all models.
-* `results/performance_metrics.csv`: Tabular summary of metrics.
+### Visualizations
+* **ROC Curves**: Saved under `results/roc_curve_comparison_2.png`, comparing the True Positive Rate vs. False Positive Rate across all models.
+* **Metrics Export**: Detailed metrics saved under `results/performance_metrics_2.csv`.
+
+---
+
+## How to Run the Code
+1. Ensure Python and required libraries are installed:
+   ```bash
+   pip install scikit-learn pandas numpy matplotlib seaborn
