@@ -302,13 +302,13 @@ Although the models achieved strong results, several limitations should be consi
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/durlovrasel/Disease-Prediction-ML.git
+git clone https://github.com/durlovrasel/disease-prediction-using-machine-learning.git
 ```
 
 ### Step 2: Navigate to the Project Directory
 
 ```bash
-cd Disease-Prediction-ML
+cd disease-prediction-using-machine-learning
 ```
 
 ### Step 3: Create a Virtual Environment
